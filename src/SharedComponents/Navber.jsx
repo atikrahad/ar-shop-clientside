@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const Navber = () => {
 
@@ -11,14 +11,14 @@ const Navber = () => {
     </>
 
   return (
-    <div>
-      <div className="navbar ">
+    <div className="bg-cyan-950">
+      <div className="navbar w-[95%] md:w-[80%] mx-auto">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5"
+                className="h-5 text-white w-5"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -40,17 +40,17 @@ const Navber = () => {
               }
             </ul>
           </div>
-          <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+          <a className="btn normal-case text-xl">daisyUI</a>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">
+          <ul className="menu menu-horizontal space-x-2 px-1">
             {
                 navber
             }
           </ul>
         </div>
-        <div className="navbar-end">
-          <a className="btn">Button</a>
+        <div className="navbar-end ">
+          <Link><button className="font-bold rounded-md text-white py-2 px-3 bg-green-600 hover:bg-sky-600">Sign In</button></Link>
         </div>
       </div>
     </div>
