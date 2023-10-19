@@ -12,6 +12,7 @@ import Signup from './Pages/Signup';
 import Authprovider from './SharedComponents/Authprovider';
 import Addproducts from './Pages/Addproducts';
 import Products from './Pages/Products';
+import Login from './Pages/Login';
 
 const router = createBrowserRouter([
   {
@@ -34,6 +35,10 @@ const router = createBrowserRouter([
       {
         path: "/addproducts",
         element: <Addproducts></Addproducts>
+      },
+      {
+        path: "/login",
+        element: <Login></Login>
       }
     ]
   },

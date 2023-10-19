@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 const Showproducts = ({ item }) => {
   const {img,price,rating, title} = item;
   return (
@@ -22,5 +23,7 @@ const Showproducts = ({ item }) => {
     </div>
   );
 };
-
+Showproducts.propTypes ={
+    item: PropTypes.object.isRequired
+}
 export default Showproducts;

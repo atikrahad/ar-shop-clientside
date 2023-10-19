@@ -1,6 +1,6 @@
-
+import PropTypes from "prop-types"
 import { createContext, useState } from "react";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import { auth } from "../Firebase/firebase";
 
 export  const Authinfo = createContext(null)
@@ -9,7 +9,15 @@ const Authprovider = ({children}) => {
     const [user, setUser] = useState(null)
 
     const createUser = (email, password) => {
-        createUserWithEmailAndPassword(auth, email, password);
+       return createUserWithEmailAndPassword(auth, email, password);
+        
+    }
+    const singinWithpas = (email, password) => {
+       return signInWithEmailAndPassword(auth, email, password);
+        
+    }
+    const googleSignin = provider => {
+       return signInWithPopup(auth, provider);
         
     }
 
@@ -17,6 +25,8 @@ const Authprovider = ({children}) => {
         user,
         createUser,
         setUser,
+        googleSignin,
+        singinWithpas,
     }
     return (
         <Authinfo.Provider value={Info}>
@@ -26,5 +36,7 @@ const Authprovider = ({children}) => {
         </Authinfo.Provider>
     );
 };
-
+Authprovider.propTypes = {
+    children: PropTypes.node
+}
 export default Authprovider;

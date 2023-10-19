@@ -1,8 +1,12 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Authinfo } from "../SharedComponents/Authprovider";
+import { Link } from "react-router-dom";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const Signup = () => {
-  const { createUser, setUser, user } = useContext(Authinfo);
+  const { createUser, user } = useContext(Authinfo);
+
+  const [open, setOpen] = useState('!open')
 
   console.log(user);
   const handleSignup = (e) => {
@@ -16,7 +20,6 @@ const Signup = () => {
         
         const user = userCredential.user;
         console.log(user);
-        setUser(userCredential)
         
       })
       .catch((error) => {
@@ -27,6 +30,10 @@ const Signup = () => {
       });
     
   };
+
+  const handleIcon = open => {
+    setOpen(open)
+  }
 
   return (
     <div className="w-[95%] md:w-[80%] mx-auto">
@@ -39,7 +46,7 @@ const Signup = () => {
             <form onSubmit={handleSignup} className="card-body">
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text">Name</span>
+                  <span className="label-text">Name<sup>*</sup></span>
                 </label>
                 <input
                   type="text"
@@ -51,7 +58,7 @@ const Signup = () => {
               </div>
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text">Email</span>
+                  <span className="label-text">Email<sup>*</sup></span>
                 </label>
                 <input
                   type="email"
@@ -61,21 +68,27 @@ const Signup = () => {
                   required
                 />
               </div>
-              <div className="form-control">
+              <div className="form-control relative">
                 <label className="label">
-                  <span className="label-text">Password</span>
+                  <span className="label-text">Password<sup>*</sup></span>
                 </label>
                 <input
-                  type="password"
+                  type={open? 'password': 'text'}
                   placeholder="password"
                   name="password"
                   className="input input-bordered"
                   required
                 />
+                <div className="absolute right-2 top-[63%]" onClick={()=>handleIcon(!open)}>
+                    {
+                        open? <FaEye></FaEye> : <FaEyeSlash></FaEyeSlash>
+                    }
+                </div>
               </div>
               <div className="form-control mt-6">
-                <button className="btn btn-primary">Login</button>
+                <button className="btn text-white py-2 px-3 bg-green-600 hover:bg-sky-600">Sign up</button>
               </div>
+              <p>Already have accound <Link className="text-blue-800 font-bold" to="/login">login</Link></p>
             </form>
           </div>
         </div>

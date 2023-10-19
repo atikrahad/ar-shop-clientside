@@ -50,7 +50,7 @@ const Navber = () => {
           </ul>
         </div>
         <div className="navbar-end ">
-          <Link><button className="font-bold rounded-md text-white py-2 px-3 bg-green-600 hover:bg-sky-600">Sign In</button></Link>
+          <Link to="/login"><button className="font-bold rounded-md text-white py-2 px-3 bg-green-600 hover:bg-sky-600">Sign In</button></Link>
         </div>
       </div>
     </div>

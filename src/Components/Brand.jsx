@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 const Brand = ({ data }) => {
 
     const {img, brand} = data;
@@ -21,5 +22,7 @@ const Brand = ({ data }) => {
     </div>
   );
 };
-
+Brand.propTypes ={
+    data: PropTypes.object.isRequired
+}
 export default Brand;
