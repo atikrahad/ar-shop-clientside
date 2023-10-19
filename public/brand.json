@@ -1,0 +1,33 @@
+[
+    {
+      "id": 1,
+      "brand": "Google",
+      "img": "https://holisticbillingservices.com/wp-content/uploads/2023/03/google-g94c161b48_1280.png"
+    },
+    {
+      "id": 2,
+      "brand": "Apple",
+      "img": "https://www.apple.com/v/apple-events/home/ab/images/meta/overview__bcphzsdb4fpu_og.png?202309071824"
+    },
+    {
+      "id": 3,
+      "brand": "Samsung",
+      "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwO6balaNi4Kp2f3I2QRIc1qHOCwfq9JzORxbmnhym190YUMU9u1SfRuhaO1SCIZtlag8&usqp=CAU"
+    },
+    {
+      "id": 4,
+      "brand": "Intel",
+      "img": "https://etimg.etb2bimg.com/photo/94265107.cms"
+    },
+    {
+      "id": 5,
+      "brand": "Sony",
+      "img": "https://petapixel.com/assets/uploads/2023/07/sony-teases-new-alpha-camera.jpg"
+    },
+    {
+      "id": 6,
+      "brand": "Xiaomi",
+      "img": "https://logohistory.net/wp-content/uploads/2022/09/Xiaomi-logo.png"
+    }
+  ]
+  
