@@ -10,6 +10,7 @@ import Root from './Root';
 import Home from './Pages/Home';
 import Signup from './Pages/Signup';
 import Authprovider from './SharedComponents/Authprovider';
+import Addproducts from './Pages/Addproducts';
 
 const router = createBrowserRouter([
   {
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
       {
         path: "/signup",
         element: <Signup></Signup>
+      },
+      {
+        path: "/addproducts",
+        element: <Addproducts></Addproducts>
       }
     ]
   },
