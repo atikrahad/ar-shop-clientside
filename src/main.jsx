@@ -11,6 +11,7 @@ import Home from './Pages/Home';
 import Signup from './Pages/Signup';
 import Authprovider from './SharedComponents/Authprovider';
 import Addproducts from './Pages/Addproducts';
+import Products from './Pages/Products';
 
 const router = createBrowserRouter([
   {
@@ -20,6 +21,11 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>
+      },
+      {
+        path: "/products",
+        element: <Products></Products>,
+        loader: ()=> fetch('http://localhost:5000/products')
       },
       {
         path: "/signup",

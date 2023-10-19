@@ -3,10 +3,10 @@ import { Link, NavLink } from "react-router-dom";
 const Navber = () => {
 
     const navber = <>
-        <li><NavLink to="/">Home</NavLink></li>
-        <li><NavLink to="/">Home</NavLink></li>
-        <li><NavLink to="/">Home</NavLink></li>
-        <li><NavLink to="/signup">Sign Up</NavLink></li>
+        <li className=""><NavLink to="/">Home</NavLink></li>
+        <li className=""><NavLink to="/products">Products</NavLink></li>
+        <li className=""><NavLink to="/addproducts">Add Product</NavLink></li>
+        <li className=""><NavLink to="/signup">Sign Up</NavLink></li>
         
     </>
 
@@ -43,7 +43,7 @@ const Navber = () => {
           <a className="btn normal-case text-xl">daisyUI</a>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal space-x-2 px-1">
+          <ul className="menu menu-horizontal text-white space-x-2 px-1">
             {
                 navber
             }
