@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Header from "../Components/Header";
 import Brand from "../Components/Brand";
+import Contactus from "../Components/Contactus";
 
 
 
@@ -21,6 +22,7 @@ const Home = () => {
                     branddata.map(data => <Brand key={data.id} data={data}></Brand>)
                 }
             </div>
+            <Contactus></Contactus>
         </div>
     );
 };
