@@ -13,6 +13,7 @@ import Authprovider from './SharedComponents/Authprovider';
 import Addproducts from './Pages/Addproducts';
 import Products from './Pages/Products';
 import Login from './Pages/Login';
+import Privateroute from './SharedComponents/Privateroute';
 
 const router = createBrowserRouter([
   {
@@ -25,7 +26,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/products",
-        element: <Products></Products>,
+        element: <Privateroute><Products></Products></Privateroute>,
         loader: ()=> fetch('http://localhost:5000/products')
       },
       {
@@ -34,7 +35,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/addproducts",
-        element: <Addproducts></Addproducts>
+        element: <Privateroute><Addproducts></Addproducts></Privateroute>
       },
       {
         path: "/login",

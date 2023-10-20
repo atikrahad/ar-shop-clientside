@@ -2,9 +2,10 @@ import { Link, useLoaderData } from "react-router-dom";
 import Showproducts from "../Components/Showproducts";
 
 
+
 const Products = () => {
     const productsData = useLoaderData()
-
+    
     return (
         <div className="min-h-[60vh] w-[95%] md:w-[80%] mx-auto">
             

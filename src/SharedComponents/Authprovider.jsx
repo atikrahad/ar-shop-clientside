@@ -1,25 +1,40 @@
 import PropTypes from "prop-types"
-import { createContext, useState } from "react";
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
+import { createContext, useEffect, useState } from "react";
+import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
 import { auth } from "../Firebase/firebase";
 
 export  const Authinfo = createContext(null)
 
 const Authprovider = ({children}) => {
-    const [user, setUser] = useState(null)
+    const [user, setUser] = useState(null);
+    const [loading, setLoading] = useState(true)
 
     const createUser = (email, password) => {
        return createUserWithEmailAndPassword(auth, email, password);
         
     }
     const singinWithpas = (email, password) => {
-       return signInWithEmailAndPassword(auth, email, password);
-        
+        setLoading(true)
+       return signInWithEmailAndPassword(auth, email, password); 
     }
     const googleSignin = provider => {
+        setLoading(true)
        return signInWithPopup(auth, provider);
         
     }
+    const logoutUser = () => {
+        setLoading(true)
+       return signOut(auth);
+        
+    }
+
+    useEffect(()=>{
+        const unSubscribe = onAuthStateChanged(auth, (user)=> {
+            setUser(user);
+            setLoading(false)
+        })
+        return unSubscribe;
+    },[])
 
     const Info = {
         user,
@@ -27,6 +42,8 @@ const Authprovider = ({children}) => {
         setUser,
         googleSignin,
         singinWithpas,
+        logoutUser,
+        loading
     }
     return (
         <Authinfo.Provider value={Info}>

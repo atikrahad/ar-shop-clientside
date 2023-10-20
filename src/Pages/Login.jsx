@@ -2,7 +2,7 @@ import { GoogleAuthProvider } from "firebase/auth";
 import { useContext, useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import { auth } from "../Firebase/firebase";
+
 import { Authinfo } from "../SharedComponents/Authprovider";
 
 const Login = () => {
@@ -40,7 +40,7 @@ const Login = () => {
             console.log(error);
         })
     }
-
+console.log(user);
   return (
     <div>
       <div className="hero min-h-screen bg-base-200">
