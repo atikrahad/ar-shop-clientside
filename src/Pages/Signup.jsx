@@ -1,14 +1,14 @@
 import { useContext, useState } from "react";
 import { Authinfo } from "../SharedComponents/Authprovider";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const Signup = () => {
-  const { createUser, user } = useContext(Authinfo);
+  const { createUser} = useContext(Authinfo);
 
   const [open, setOpen] = useState('!open')
 
-  console.log(user);
+  const navigate = useNavigate()
   const handleSignup = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -20,6 +20,7 @@ const Signup = () => {
         
         const user = userCredential.user;
         console.log(user);
+        navigate('/products')
         
       })
       .catch((error) => {
@@ -36,7 +37,7 @@ const Signup = () => {
   }
 
   return (
-    <div className="w-[95%] md:w-[80%] mx-auto">
+    <div className="bg-base-200 mx-auto">
       <div className="hero min-h-screen">
         <div className="hero-content flex-col">
           <div className="text-center lg:text-left">

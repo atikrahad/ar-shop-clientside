@@ -35,10 +35,11 @@ const Addproducts = () => {
             <h1 className="text-5xl font-bold">Add Product</h1>
             
           </div>
-          <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-            <form onSubmit={handleAddproduct} className="card-body">
+          <div className=" flex-shrink-0 w-full rounded-md shadow-2xl bg-base-100">
+            <form onSubmit={handleAddproduct} className=" p-5">
               
-              <div className="form-control">
+              <div className="flex flex-col gap-3 md:flex-row">
+              <div className="form-control w-full">
                 <label className="label">
                   <span className="label-text">Image url</span>
                 </label>
@@ -50,20 +51,8 @@ const Addproducts = () => {
                   name="img"
                 />
               </div>
-              <div className="form-control">
-                <label className="label">
-                  <span className="label-text">Product Name</span>
-                </label>
-                <input
-                  type="text"
-                  placeholder="products name"
-                  className="input input-bordered"
-                  required
-                  name="name"
-                />
-              </div>
-
-              <div className="form-control">
+              
+              <div className="form-control w-full">
                 <label className="label">
                   <span className="label-text">Brand name</span>
                 </label>
@@ -75,7 +64,22 @@ const Addproducts = () => {
                   name="brand"
                 />
               </div>
-              <div className="form-control">
+              </div>
+              <div className="form-control w-full">
+                <label className="label">
+                  <span className="label-text">Product Name</span>
+                </label>
+                <input
+                  type="text"
+                  placeholder="products name"
+                  className="input input-bordered"
+                  required
+                  name="name"
+                />
+              </div>
+              
+              <div className="flex flex-col gap-3 md:flex-row">
+              <div className="form-control w-full">
                 <label className="label">
                   <span className="label-text">Category Type</span>
                 </label>
@@ -87,7 +91,7 @@ const Addproducts = () => {
                 </select>
               </div>
               
-              <div className="form-control">
+              <div className="form-control w-full">
                 <label className="label">
                   <span className="label-text">Price</span>
                 </label>
@@ -100,14 +104,7 @@ const Addproducts = () => {
                 />
                 
               </div>
-              <div className="form-control">
-                <label className="label">
-                  <span className="label-text">Short Description</span>
-                </label>
-                <textarea name="description" className="input input-bordered" cols="30" rows="10"></textarea>
-                
-              </div>
-              <div className="form-control">
+              <div className="form-control w-full">
                 <label className="label">
                   <span className="label-text">Rating</span>
                 </label>
@@ -120,7 +117,16 @@ const Addproducts = () => {
                 />
                 
               </div>
-              <div className="form-control">
+              </div>
+              <div className="form-control mb-5 w-full">
+                <label className="label">
+                  <span className="label-text">Short Description</span>
+                </label>
+                <textarea name="description" className="input input-bordered" cols="30" rows="10"></textarea>
+                
+              </div>
+              
+              <div className="form-control w-full">
             
                 <input
                   type="submit"

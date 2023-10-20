@@ -7,9 +7,16 @@ const Navber = () => {
 
     const navber = <>
         <li className=""><NavLink to="/">Home</NavLink></li>
-        <li className=""><NavLink to="/products">Products</NavLink></li>
-        <li className=""><NavLink to="/addproducts">Add Product</NavLink></li>
-        <li className=""><NavLink to="/signup">Sign Up</NavLink></li>
+        {
+          user && <li className=""><NavLink to="/products">Products</NavLink></li>
+        }
+        {
+          user && <li className=""><NavLink to="/addproducts">Add Product</NavLink></li>
+        }
+        {
+          !user && <li className=""><NavLink to="/signup">Sign Up</NavLink></li>
+        }
+        
         
     </>
 

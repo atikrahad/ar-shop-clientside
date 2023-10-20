@@ -1,7 +1,7 @@
 import { GoogleAuthProvider } from "firebase/auth";
 import { useContext, useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import { Authinfo } from "../SharedComponents/Authprovider";
 
@@ -14,11 +14,12 @@ const Login = () => {
   };
 
   const googleProvider = new GoogleAuthProvider()
-
+  const navigate = useNavigate()
   const handleGooglesignin = ()=> {
     googleSignin(googleProvider)
         .then(user => {
-            console.log(user); 
+            console.log(user);
+            navigate('/products')
         })
         .catch(error => {
             console.log(error);
@@ -35,6 +36,7 @@ const Login = () => {
         singinWithpas(email, password)
         .then(user => {
             console.log(user);
+            navigate('products')
         })
         .catch(error => {
             console.log(error);

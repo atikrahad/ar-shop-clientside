@@ -1,8 +1,9 @@
-import PropTypes from 'prop-types';
-const Showproducts = ({ item }) => {
-  const {img,price,rating, title} = item;
-  return (
-    <div>
+
+
+const Showbranddata = ({item}) => {
+    const {img,price,rating, title} = item;
+    return (
+        <div>
       <div className="card bg-base-200 shadow-xl">
         <figure className="px-5 pt-5">
           <img
@@ -21,9 +22,7 @@ const Showproducts = ({ item }) => {
         </div>
       </div>
     </div>
-  );
+    );
 };
-Showproducts.propTypes ={
-    item: PropTypes.object.isRequired
-}
-export default Showproducts;
+
+export default Showbranddata;
