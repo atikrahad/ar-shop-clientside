@@ -16,6 +16,8 @@ import Login from './Pages/Login';
 import Privateroute from './SharedComponents/Privateroute';
 import Brandallproducts from './Pages/Brandallproducts';
 import Singleproducts from './Pages/Singleproducts';
+import Addcart from './Pages/Addcart';
+import Apdate from './Pages/Apdate';
 
 const router = createBrowserRouter([
   {
@@ -51,6 +53,16 @@ const router = createBrowserRouter([
       {
         path: "/:brand/:id",
         element: <Privateroute><Singleproducts></Singleproducts></Privateroute>,
+        loader: ({params})=> fetch(`http://localhost:5000/${params.brand}/${params.id}`)
+      },
+      {
+        path: "/cart",
+        element: <Privateroute><Addcart></Addcart></Privateroute>,
+        loader: ()=> fetch('http://localhost:5000/cart')
+      },
+      {
+        path: "/apdate/:brand/:id",
+        element: <Privateroute><Apdate></Apdate></Privateroute>,
         loader: ({params})=> fetch(`http://localhost:5000/${params.brand}/${params.id}`)
       }
     ]
