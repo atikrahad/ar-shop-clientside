@@ -15,6 +15,7 @@ import Products from './Pages/Products';
 import Login from './Pages/Login';
 import Privateroute from './SharedComponents/Privateroute';
 import Brandallproducts from './Pages/Brandallproducts';
+import Singleproducts from './Pages/Singleproducts';
 
 const router = createBrowserRouter([
   {
@@ -43,9 +44,14 @@ const router = createBrowserRouter([
         element: <Login></Login>
       },
       {
-        path: "/products/:brand",
+        path: "/brandproducts/:brand",
         element: <Brandallproducts></Brandallproducts>,
-        loader: ({params})=> fetch(`http://localhost:5000/products/${params.brand}`)
+        loader: ({params})=> fetch(`http://localhost:5000/${params.brand}`)
+      },
+      {
+        path: "products/:id",
+        element: <Singleproducts></Singleproducts>,
+        loader: ({params})=> fetch(`http://localhost:5000/products/${params.id}`)
       }
     ]
   },

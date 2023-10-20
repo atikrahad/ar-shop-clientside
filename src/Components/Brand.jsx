@@ -15,7 +15,7 @@ const Brand = ({ data }) => {
         <div className="card-body">
           <h2 className="card-title">{brand}</h2>
           <p></p>
-          <Link to={`/products/${brand}`}><div className="card-actions justify-end">
+          <Link to={`/brandproducts/${brand}`}><div className="card-actions justify-end">
             <button className="btn border-none text-white font-semibold bg-green-600 hover:bg-sky-600">See {brand} products</button>
           </div></Link>
         </div>
