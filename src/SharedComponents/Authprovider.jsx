@@ -36,6 +36,9 @@ const Authprovider = ({children}) => {
         return unSubscribe;
     },[])
 
+    
+        
+
     const Info = {
         user,
         createUser,
@@ -43,7 +46,9 @@ const Authprovider = ({children}) => {
         googleSignin,
         singinWithpas,
         logoutUser,
-        loading
+        loading,
+        
+        
     }
     return (
         <Authinfo.Provider value={Info}>
