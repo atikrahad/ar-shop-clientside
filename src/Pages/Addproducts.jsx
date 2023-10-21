@@ -1,5 +1,8 @@
-const Addproducts = () => {
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
+const Addproducts = () => {
+  
     const handleAddproduct = e => {
         e.preventDefault()
         const  form = e.target;
@@ -24,6 +27,16 @@ const Addproducts = () => {
         .then(res => res.json())
         .then(data => {
             console.log(data);
+            toast.success('product added successfully', {
+              position: "bottom-right",
+              autoClose: 5000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: "colored",
+              });
         })
     }
 
@@ -56,13 +69,14 @@ const Addproducts = () => {
                 <label className="label">
                   <span className="label-text">Brand name</span>
                 </label>
-                <input
-                  type="text"
-                  placeholder="brand"
-                  className="input input-bordered"
-                  required
-                  name="brand"
-                />
+                <select name="category" className="input input-bordered" id="">
+                    <option value="Google">Google</option>
+                    <option value="Apple">Apple</option>
+                    <option value="Sony">Sony</option>
+                    <option value="Readmi">Readmi</option>
+                    <option value="Samsung">Samsung</option>
+                    <option value="Intel">Intel</option>
+                </select>
               </div>
               </div>
               <div className="form-control w-full">
@@ -137,6 +151,7 @@ const Addproducts = () => {
               </div>
               
             </form>
+            <ToastContainer></ToastContainer>
           </div>
         </div>
       </div>

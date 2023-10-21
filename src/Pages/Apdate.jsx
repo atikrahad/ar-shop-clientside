@@ -5,7 +5,31 @@ import { useLoaderData } from "react-router-dom";
 const Apdate = () => {
 
     const data = useLoaderData()
-    const { img, title, brand,category, rating, description, price } = data;
+    const { img, title,_id, brand,category, rating, description, price } = data;
+
+    const handleupdate = e => {
+        e.preventDefault()
+        const  form = e.target;
+        const img = form.img.value;
+        const title = form.name.value;
+        const brand = form.brand.value;
+        const category = form.category.value;
+        const price = form.price.value;
+        const description = form.description.value;
+        const rating = form.rating.value;
+        const product = {img, title, brand, category, price, description, rating };
+        form.reset()
+        console.log(product); 
+        fetch(`http://localhost:5000/products/${_id}`,{
+            method: "PUT",
+            headers: {
+                'content-type' : 'application/json'
+            },
+            body: JSON.stringify(product)
+        })
+        .then(res => res.json())
+        .then(data => console.log(data))
+    }
     
     return (
         <div>
@@ -16,7 +40,7 @@ const Apdate = () => {
             
           </div>
           <div className=" flex-shrink-0 w-full rounded-md shadow-2xl bg-base-100">
-            <form  className=" p-5">
+            <form  onSubmit={handleupdate} className=" p-5">
               
               <div className="flex flex-col gap-3 md:flex-row">
               <div className="form-control w-full">
@@ -37,14 +61,14 @@ const Apdate = () => {
                 <label className="label">
                   <span className="label-text">Brand name</span>
                 </label>
-                <input
-                  type="text"
-                  placeholder="brand"
-                  className="input input-bordered"
-                  required
-                  defaultValue={brand}
-                  name="brand"
-                />
+                <select name="brand" defaultValue={brand} className="input input-bordered" id="">
+                <option value="Google">Google</option>
+                    <option value="Apple">Apple</option>
+                    <option value="Sony">Sony</option>
+                    <option value="Readmi">Readmi</option>
+                    <option value="Samsung">Samsung</option>
+                    <option value="Intel">Intel</option>
+                </select>
               </div>
               </div>
               <div className="form-control w-full">
