@@ -57,7 +57,9 @@ const Navber = () => {
               }
             </ul>
           </div>
-          <a className="btn normal-case text-xl">daisyUI</a>
+          <div className="flex items-center justify-center">
+          <h1 className="text-5xl font-bold text-white">I</h1><span className="text-3xl font-semibold text-orange-600">SELL</span>
+          </div>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal text-white space-x-2 px-1">

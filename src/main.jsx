@@ -18,11 +18,13 @@ import Brandallproducts from './Pages/Brandallproducts';
 import Singleproducts from './Pages/Singleproducts';
 import Addcart from './Pages/Addcart';
 import Apdate from './Pages/Apdate';
+import Errorpage from './Pages/Errorpage';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root></Root>,
+    errorElement: <Errorpage></Errorpage>,
     children: [
       {
         path: "/",
@@ -31,7 +33,7 @@ const router = createBrowserRouter([
       {
         path: "/products",
         element: <Privateroute><Products></Products></Privateroute>,
-        loader: ()=> fetch('http://localhost:5000/products')
+        loader: ()=> fetch('https://argedgets-server-eyv80oq3z-atikrahad1-gmailcom.vercel.app/products')
       },
       {
         path: "/signup",
@@ -48,22 +50,22 @@ const router = createBrowserRouter([
       {
         path: "/brandproducts/:brand",
         element: <Privateroute><Brandallproducts></Brandallproducts></Privateroute>,
-        loader: ({params})=> fetch(`http://localhost:5000/${params.brand}`)
+        loader: ({params})=> fetch(`https://argedgets-server-eyv80oq3z-atikrahad1-gmailcom.vercel.app/${params.brand}`)
       },
       {
         path: "/:brand/:id",
         element: <Privateroute><Singleproducts></Singleproducts></Privateroute>,
-        loader: ({params})=> fetch(`http://localhost:5000/${params.brand}/${params.id}`)
+        loader: ({params})=> fetch(`https://argedgets-server-eyv80oq3z-atikrahad1-gmailcom.vercel.app/${params.brand}/${params.id}`)
       },
       {
         path: "/cart",
         element: <Privateroute><Addcart></Addcart></Privateroute>,
-        loader: ()=> fetch('http://localhost:5000/cart')
+        loader: ()=> fetch('https://argedgets-server-eyv80oq3z-atikrahad1-gmailcom.vercel.app/cart')
       },
       {
         path: "/apdate/:brand/:id",
         element: <Privateroute><Apdate></Apdate></Privateroute>,
-        loader: ({params})=> fetch(`http://localhost:5000/${params.brand}/${params.id}`)
+        loader: ({params})=> fetch(`https://argedgets-server-eyv80oq3z-atikrahad1-gmailcom.vercel.app/${params.brand}/${params.id}`)
       }
     ]
   },

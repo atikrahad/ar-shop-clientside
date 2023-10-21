@@ -20,7 +20,7 @@ const Apdate = () => {
         const product = {img, title, brand, category, price, description, rating };
         form.reset()
         console.log(product); 
-        fetch(`http://localhost:5000/products/${_id}`,{
+        fetch(`https://argedgets-server-eyv80oq3z-atikrahad1-gmailcom.vercel.app/products/${_id}`,{
             method: "PUT",
             headers: {
                 'content-type' : 'application/json'
@@ -116,14 +116,13 @@ const Apdate = () => {
                 <label className="label">
                   <span className="label-text">Rating</span>
                 </label>
-                <input
-                  type="number"
-                  placeholder="rating"
-                  className="input input-bordered"
-                  required
-                  defaultValue={rating}
-                  name="rating"
-                />
+                <select name="rating" defaultValue={rating} className="input input-bordered">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                  </select>
                 
               </div>
               </div>

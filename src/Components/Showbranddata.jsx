@@ -1,7 +1,5 @@
-
+import PropTypes from 'prop-types'
 import { Link } from "react-router-dom";
-
-
 
 const Showbranddata = ({item}) => {
   
@@ -18,7 +16,7 @@ const Showbranddata = ({item}) => {
             className="rounded-xl h-40"
           />
         </figure>
-        <div className="card-body -my-3 -space-y-1 items-center text-center">
+        <div className="h-48 py-5 justify-between flex flex-col -my-3 -space-y-1 items-center text-center">
           <h2 className="card-title">{title}</h2>
           <p>{price} TK</p>
           <p>Rating {rating} </p>
@@ -30,5 +28,7 @@ const Showbranddata = ({item}) => {
     </div>
     );
 };
-
+Showbranddata.propTypes = {
+  item: PropTypes.object.isRequired
+}
 export default Showbranddata;

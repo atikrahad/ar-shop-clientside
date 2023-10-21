@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const Signup = () => {
-  const { createUser} = useContext(Authinfo);
+  const { createUser, error, setError} = useContext(Authinfo);
 
   const [open, setOpen] = useState('!open')
 
@@ -15,6 +15,18 @@ const Signup = () => {
     const email = form.email.value;
     const password = form.password.value;
     form.reset()
+
+    if(password.length < 6){
+      return setError('Password should be at least 6 characters')
+    }
+    else if(!/[A-Z]/.test(password)){
+      return setError('Password should be a Capital latter')
+    }
+    // eslint-disable-next-line no-useless-escape
+    else if(!/[!@#$%^&*()_+{}\[\]:;<>,.?~\\-]/.test(password)){
+      return setError('Password should be a special character')
+    }
+
     createUser(email, password)
     .then((userCredential) => {
         
@@ -24,9 +36,9 @@ const Signup = () => {
         
       })
       .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        console.log(errorCode, errorMessage);
+        const errorMessage = error.code.split('/');
+      const message = errorMessage.slice(1, errorMessage.length)
+      setError(message.join())
         
       });
     
@@ -86,6 +98,7 @@ const Signup = () => {
                     }
                 </div>
               </div>
+              <p className="text-red-500 -mb-2">{error}</p>
               <div className="form-control mt-6">
                 <button className="btn text-white py-2 px-3 bg-green-600 hover:bg-sky-600">Sign up</button>
               </div>

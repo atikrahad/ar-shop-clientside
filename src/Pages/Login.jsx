@@ -7,7 +7,7 @@ import { Authinfo } from "../SharedComponents/Authprovider";
 
 const Login = () => {
   const [open, setOpen] = useState("!open");
-  const {user, googleSignin, singinWithpas} = useContext(Authinfo)
+  const { googleSignin,error, setError, singinWithpas} = useContext(Authinfo)
 
   const handleIcon = (open) => {
     setOpen(open);
@@ -39,10 +39,11 @@ const Login = () => {
             navigate('products')
         })
         .catch(error => {
-            console.log(error);
+          console.log(error);
+          setError("Invalid email/passord")
         })
     }
-console.log(user);
+
   return (
     <div>
       <div className="hero min-h-screen bg-base-200">
@@ -86,6 +87,7 @@ console.log(user);
                   {open ? <FaEye></FaEye> : <FaEyeSlash></FaEyeSlash>}
                 </div>
               </div>
+              <p className="text-red-500 -mb-2">{error}</p>
               <div className="form-control mt-6">
                 <button className="btn text-white -my-2 px-3 bg-green-600 hover:bg-sky-600">
                   Login

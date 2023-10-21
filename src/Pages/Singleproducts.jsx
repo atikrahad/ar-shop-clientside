@@ -15,17 +15,17 @@ import { Authinfo } from "../SharedComponents/Authprovider";
 const Singleproducts = () => {
   const data = useLoaderData();
   const {setPromis, promis} = useContext(Authinfo)
-  const { img, title, _id, brand, rating, description, price } = data;
+  const { img, title, _id,category, brand, rating, description, price } = data;
   const [brandeddata, setBrandeddata] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/${brand}`)
+    fetch(`https://argedgets-server-eyv80oq3z-atikrahad1-gmailcom.vercel.app/${brand}`)
       .then((res) => res.json())
       .then((data) => setBrandeddata(data));
   }, []);
 
   const handlecart = (addcarddata) => {
-    fetch("http://localhost:5000/cart", {
+    fetch("https://argedgets-server-eyv80oq3z-atikrahad1-gmailcom.vercel.app/cart", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -50,7 +50,7 @@ const Singleproducts = () => {
   };
 
   const handleDeleteProduct = () => {
-    fetch(`http://localhost:5000/products/${_id}`, {
+    fetch(`https://argedgets-server-eyv80oq3z-atikrahad1-gmailcom.vercel.app/products/${_id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
@@ -77,15 +77,15 @@ const Singleproducts = () => {
         >
           {brandeddata.map((item) => (
             <SwiperSlide key={item._id}>
-              <div className="py-20 flex flex-col md:flex-row items-center justify-evenly">
+              <div className="py-20 gap-5 flex flex-col md:flex-row items-center justify-evenly">
                 <div className="md:w-1/2">
-                  <h1 className="text-4xl">{item.title}</h1>
+                  <h1 className="text-4xl text-center md:text-left">{item.title}</h1>
                   <div className="h-12 text-ellipsis overflow-hidden">
-                    <p>{item.description}</p>
+                    <p className='text-center md:text-left'>{item.description}</p>
                   </div>
                 </div>
                 <div>
-                  <img src={item.img} alt="" />
+                  <img src={item.img} className='w-52' alt="" />
                 </div>
               </div>
             </SwiperSlide>
@@ -101,7 +101,7 @@ const Singleproducts = () => {
             <img src={img} className=" mx-auto w-72 rounded-lg shadow-2xl" />
           </div>
           <div className="md:w-1/2 space-y-3">
-            <h1 className="text-5xl font-bold">{title}</h1>
+            <h1 className="text-2xl md:text-5xl font-bold">{title}</h1>
             <h2 className="text-xl text-green-600 font-bold">
               Rating: {rating}
             </h2>
@@ -111,6 +111,9 @@ const Singleproducts = () => {
             </h1>
             <h1 className="text-xl ">
               Brand name: <span className="font-bold">{brand}</span>
+            </h1>
+            <h1 className="text-xl ">
+              Category: <span className="font-bold">{category}</span>
             </h1>
             {
               promis===true? <Link to="/cart"><button
@@ -158,13 +161,14 @@ const Singleproducts = () => {
               </div>
             </dialog>
 
-            <div>
-              <p className="font-semibold">Prodact description:</p>
-              <p>{description}</p>
-            </div>
+            
             <ToastContainer></ToastContainer>
           </div>
         </div>
+        <div className='pb-10'>
+              <p className="font-semibold">Prodact description:</p>
+              <p>{description}</p>
+            </div>
       </div>
     </div>
   );

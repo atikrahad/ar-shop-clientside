@@ -16,7 +16,7 @@ const Addcart = () => {
 
 
   const handleDeleteCartproduct = id => {
-    fetch(`http://localhost:5000/cart/${id}`, {
+    fetch(`https://argedgets-server-eyv80oq3z-atikrahad1-gmailcom.vercel.app/cart/${id}`, {
        
     })
     .then(res => res.json())
