@@ -33,13 +33,13 @@ const Apdate = () => {
     
     return (
         <div>
-            <div className="hero min-h-screen bg-base-200">
-        <div className="hero-content flex-col">
-          <div className="text-center lg:text-left">
-            <h1 className="text-5xl font-bold">Update product</h1>
+            <div className=" min-h-screen py-10 bg-base-200">
+        <div className=" flex-col">
+          <div className="text-center py-5">
+            <h1 className="text-3xl md:text-5xl font-bold">Update product</h1>
             
           </div>
-          <div className=" flex-shrink-0 w-full rounded-md shadow-2xl bg-base-100">
+          <div className=" md:w-[80%] mx-auto w-[95%] rounded-md shadow-2xl bg-base-100">
             <form  onSubmit={handleupdate} className=" p-5">
               
               <div className="flex flex-col gap-3 md:flex-row">

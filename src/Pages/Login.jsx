@@ -46,12 +46,12 @@ const Login = () => {
 
   return (
     <div>
-      <div className="hero min-h-screen bg-base-200">
-        <div className="hero-content flex-col">
-          <div className="text-center lg:text-left">
-            <h1 className="text-5xl font-bold">Login now!</h1>
+      <div className=" min-h-screen py-5 bg-base-200">
+        <div className=" flex-col">
+          <div className="text-center">
+            <h1 className="text-3xl py-5 md:text-5xl font-bold">Login now!</h1>
           </div>
-          <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+          <div className=" md:w-[80%] pb-2 rounded-md mx-auto w-[95%] max-w-sm shadow-2xl bg-base-100">
             <form onSubmit={handleLogin} className="card-body">
               <div className="form-control">
                 <label className="label">

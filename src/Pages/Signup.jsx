@@ -49,13 +49,13 @@ const Signup = () => {
   }
 
   return (
-    <div className="bg-base-200 mx-auto">
-      <div className="hero min-h-screen">
-        <div className="hero-content flex-col">
-          <div className="text-center lg:text-left">
-            <h1 className="text-5xl font-bold">Sign Up</h1>
+    <div className="bg-base-200 ">
+      <div className="py-5 min-h-screen">
+        <div className=" flex-col">
+          <div className="text-center ">
+            <h1 className="text-3xl md:text-5xl py-5 font-bold">Sign Up</h1>
           </div>
-          <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+          <div className="md:w-[80%] mx-auto w-[95%] rounded-md shadow-2xl bg-base-100">
             <form onSubmit={handleSignup} className="card-body">
               <div className="form-control">
                 <label className="label">
@@ -102,7 +102,7 @@ const Signup = () => {
               <div className="form-control mt-6">
                 <button className="btn text-white py-2 px-3 bg-green-600 hover:bg-sky-600">Sign up</button>
               </div>
-              <p>Already have accound <Link className="text-blue-800 font-bold" to="/login">login</Link></p>
+              <p className="text-center">Already have accound <Link className="text-blue-800 font-bold" to="/login">login</Link></p>
             </form>
           </div>
         </div>
