@@ -1,10 +1,12 @@
 import { useLoaderData } from "react-router-dom";
 import Cartdetails from "../Components/Cartdetails";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { Authinfo } from "../SharedComponents/Authprovider";
 
 
 const Addcart = () => {
   const data = useLoaderData();
+  const {setPromis} = useContext(Authinfo)
   const [loderdata, setLoderdata] = useState(data)
   
   let totalprice = 0
@@ -22,6 +24,7 @@ const Addcart = () => {
        const remaining = loderdata.filter(item => item._id!== id)
        setLoderdata(remaining)
        console.log(data);
+       setPromis(false)
        
     })
   }

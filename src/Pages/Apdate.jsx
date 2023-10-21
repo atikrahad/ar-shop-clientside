@@ -140,7 +140,7 @@ const Apdate = () => {
                 <input
                   type="submit"
                   className="btn btn-primary"
-                  value="Add products"
+                  value="Apdate product"
                 />
                 
               </div>

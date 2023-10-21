@@ -69,7 +69,7 @@ const Addproducts = () => {
                 <label className="label">
                   <span className="label-text">Brand name</span>
                 </label>
-                <select name="category" className="input input-bordered" id="">
+                <select name="brand" className="input input-bordered" id="">
                     <option value="Google">Google</option>
                     <option value="Apple">Apple</option>
                     <option value="Sony">Sony</option>

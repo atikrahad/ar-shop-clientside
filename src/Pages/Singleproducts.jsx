@@ -1,15 +1,20 @@
-import { Link, useLoaderData } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
-import { useEffect, useState } from "react";
+
+import { Link, useLoaderData } from "react-router-dom";
+import { useContext, useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+import { Authinfo } from "../SharedComponents/Authprovider";
 
 const Singleproducts = () => {
   const data = useLoaderData();
+  const {setPromis, promis} = useContext(Authinfo)
   const { img, title, _id, brand, rating, description, price } = data;
   const [brandeddata, setBrandeddata] = useState([]);
 
@@ -28,7 +33,20 @@ const Singleproducts = () => {
       body: JSON.stringify(addcarddata),
     })
       .then((res) => res.json())
-      .then((data) => console.log(data));
+      .then((data) => {
+        console.log(data);
+        setPromis(true)
+        toast.success('successfully added to cart', {
+          position: "bottom-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+          });
+      });
   };
 
   const handleDeleteProduct = () => {
@@ -38,6 +56,7 @@ const Singleproducts = () => {
       .then((res) => res.json())
       .then((data) => console.log(data));
   };
+
 
   return (
     <div className="">
@@ -93,12 +112,18 @@ const Singleproducts = () => {
             <h1 className="text-xl ">
               Brand name: <span className="font-bold">{brand}</span>
             </h1>
-            <button
+            {
+              promis===true? <Link to="/cart"><button
+              className="btn text-white mr-3 font-semibold bg-green-600 hover:bg-sky-600"
+            >
+             Check cart
+            </button></Link> : <button
               onClick={() => handlecart(data)}
               className="btn text-white mr-3 font-semibold bg-green-600 hover:bg-sky-600"
             >
               Add to cart
             </button>
+            }
 
             <Link to={`/apdate/${brand}/${_id}`}>
               <button className="btn text-white mr-3 font-semibold bg-green-600 hover:bg-sky-600">
@@ -117,15 +142,15 @@ const Singleproducts = () => {
             </button>
             <dialog id="my_modal_1" className="modal">
               <div className="modal-box">
-                <h3 className="font-bold text-lg">Hello!</h3>
-                <p className="py-4">
-                  Press ESC key or click the button below to close
+                
+                <p className="py-4 text-3xl text-center">
+                  Confirm to delete
                 </p>
                 <div className="">
                   <form method="">
                     {/* if there is a button in form, it will close the modal */}
                     <div  className=" text-center space-x-2">
-                    <Link to="/products"><button onClick={handleDeleteProduct} className="btn text-white  font-semibold bg-green-600 hover:bg-sky-600">Delete</button></Link>
+                    <Link to="/"><button onClick={handleDeleteProduct} className="btn text-white  font-semibold bg-green-600 hover:bg-sky-600">Delete</button></Link>
                     <button className="btn text-white  font-semibold bg-green-600 hover:bg-sky-600">Cencel</button>
                     </div>
                   </form>
@@ -137,6 +162,7 @@ const Singleproducts = () => {
               <p className="font-semibold">Prodact description:</p>
               <p>{description}</p>
             </div>
+            <ToastContainer></ToastContainer>
           </div>
         </div>
       </div>

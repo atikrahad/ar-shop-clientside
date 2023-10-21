@@ -9,6 +9,7 @@ const Authprovider = ({children}) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true)
     const [remaingdata, setRemaingdata] = useState()
+    const [promis, setPromis] = useState(false)
 
     const createUser = (email, password) => {
        return createUserWithEmailAndPassword(auth, email, password);
@@ -49,8 +50,9 @@ const Authprovider = ({children}) => {
         logoutUser,
         loading,
         setRemaingdata,
-        remaingdata
-        
+        remaingdata,
+        setPromis,
+        promis
     }
     return (
         <Authinfo.Provider value={Info}>
