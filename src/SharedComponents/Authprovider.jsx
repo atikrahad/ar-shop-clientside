@@ -8,6 +8,7 @@ export  const Authinfo = createContext(null)
 const Authprovider = ({children}) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true)
+    const [remaingdata, setRemaingdata] = useState()
 
     const createUser = (email, password) => {
        return createUserWithEmailAndPassword(auth, email, password);
@@ -47,7 +48,8 @@ const Authprovider = ({children}) => {
         singinWithpas,
         logoutUser,
         loading,
-        
+        setRemaingdata,
+        remaingdata
         
     }
     return (

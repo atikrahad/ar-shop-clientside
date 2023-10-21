@@ -14,6 +14,9 @@ const Navber = () => {
           user && <li className=""><NavLink to="/addproducts">Add Product</NavLink></li>
         }
         {
+          user && <li className=""><NavLink to="/cart">Cart</NavLink></li>
+        }
+        {
           !user && <li className=""><NavLink to="/signup">Sign Up</NavLink></li>
         }
         
